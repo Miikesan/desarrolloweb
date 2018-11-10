@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content contacto">
+    <!-- Slider
+        ================================================== -->
+    <section class="page-title bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h2>Contáctanos</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="#contact-us" class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Formulario de Contacto</h2>
+                    <form class="mt-4">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ej: Juan Ramírez"
+                                    required> </div>
+                            <div class="form-group col-md-6">
+                                <label for="run">RUN</label>
+                                <input type="text" class="form-control" id="run" maxlength="12" placeholder="Ej: 11.111.111-1"
+                                    required> </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="Ej: correo@correo.cl"
+                                    required> </div>
+                            <div class="form-group col-md-4">
+                                <label for="email">Fecha de Nacimiento</label>
+                                <input autocomplete="off" type="text" class="form-control" id="fechaNac" placeholder="Ej: 17-08-1998"
+                                    required data-toggle="datepicker"> </div>
+                            <div class="form-group col-md-4">
+                                <label for="email">Teléfono de Contacto</label>
+                                <input type="number" class="form-control" id="telefono" placeholder="Ej: +56 9 4264 9933"
+                                    required> </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="regiones">Región</label>
+                                <select class="form-control" id="regiones">
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="comunas">Ciudad</label>
+                                <select class="form-control" id="comunas">
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="tipo-vivienda">Tipo de Vivienda</label>
+                                <select class="form-control" id="tipo-vivienda">
+                                    <option selected disabled>Selecciona tu tipo de vivienda...</option>
+                                    <option value="casa-patio-grande">Casa con patio grande</option>
+                                    <option value="casa-patio-pequeno">Casa con patio pequeño</option>
+                                    <option value="casa-sin-patio">Casa sin patio</option>
+                                    <option value="departamento">Departamento</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar</button>
+                    </form>
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+    <!-- /.container -->
+</div>
+{% endblock %}

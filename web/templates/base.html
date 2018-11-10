@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fundación Mis Perris">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <title>Mis Perris</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/{% static '' %}/images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/{% static '' %}/images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/{% static '' %}/images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static '/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static '/{% static '' %}/images/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <!-- CDN FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CDN Fancybox core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body class="home">
+    <!-- Header
+        ================================================== -->
+    <header>
+        <nav class="top-bar navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            {% if user.is_authenticated %}
+            <span class="text-white">Bienvenido, {{user.username}}</span>
+            {% endif %}
+            <ul class="navbar-nav ml-auto list-inline">
+                {% if user.is_authenticated %}
+                <li class="nav-item list-inline-item">
+                    <form class='logout' action="{% url 'accounts:logout_account' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link">Cerrar Sesión</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item list-inline-item"> <a class="nav-link" href="{% url 'accounts:login_account' %}">Iniciar
+                        Sesión</a>
+                </li>
+                <li class="nav-item list-inline-item"> <a class="nav-link" href="{% url 'accounts:register' %}">Registro</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-theme menu">
+            <a class="navbar-brand" href="/"><img alt="" src="{% static '' %}/images/logo.png" class="w-100 logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-mobile"
+                aria-controls="menu-mobile" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-mobile">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if request.path == '/' %} active {% endif %}"> <a class="nav-link" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#about-us">Quienes Somos</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item {% if request.path == '/lista_perros/' %} active {% endif %}"> <a class="nav-link"
+                            href="{% url 'web:lista_perros' %}">Adoptar</a> </li>
+                    {% endif %}
+                    <li class="nav-item {% if request.path == '/contacto' %} active {% endif %}"> <a class="nav-link"
+                            href="{% url 'web:contacto' %}">Contáctanos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <!-- Footer
+        ================================================== -->
+    <footer class="bg-light">
+        <div class="container">
+            <p class="float-right"><a href="#">Ir arriba</a></p>
+            <p>&copy; <span class="js-year">----</span> - Fundación Mis Perris</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
+    <script src="{% static '/js/popper.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+</body>
+
+</html>
