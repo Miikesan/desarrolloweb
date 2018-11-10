@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <form action="{% url 'web:lista_perros' %}" method="POST" class="form-filtro row">
+        {% csrf_token %}
+        <select name="filtro" class="col-xs-6">
+            <option value="0" selected disabled>Seleccione Estado</option>
+            <option value="1">Adoptado</option>
+            <option value="2">Disponible</option>
+            <option value="3">Rescatado</option>
+
+        </select>
+        <input type="submit" value="Filtrar" class="col-xs-6">
+    </form> -->
+
+<!-- INICIAR SESION -->
+<div class="content login">
+    <!-- Slider
+            ================================================== -->
+    <section class="page-title bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h2>Agregar Perro</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-sm-6 m-auto">
+            <form action="" method="POST" enctype="multipart/form-data" class="bg-light card form-accounts p-4 m-4">
+                {% csrf_token %}
+                {{ form }}
+                {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
+                <button class="btn btn-primary btn-block mt-3" type="submit">Agregar <i class="fa fa-chevron-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

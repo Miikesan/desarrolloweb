@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content lista_perros">
+    <!-- Slider
+    ================================================== -->
+    <section class="page-title bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h2>Nuestros Perris</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                    aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fa fa-plus"></i> Opciones</a>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        <form action="{% url 'web:lista_perros' %}" method="POST" class="form-inline">
+                            {% csrf_token %}
+                            <div class="form-group col-4">
+                                <select name="filtro" class="custom-select w-100">
+                                    <option value="0" selected disabled>Seleccione Estado</option>
+                                    <option value="1">Adoptado</option>
+                                    <option value="2">Disponible</option>
+                                    <option value="3">Rescatado</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-2">
+                                <input type="submit" value="Filtrar" class="btn btn-primary btn-block">
+                            </div>
+                            {% if perms.perro.change_perro %}
+                            <div class="form-group col-2">
+                                <a href="{% url 'web:agregar_perro' %}" class="btn btn-success btn-block">Agregar
+                                    Perro</a>
+                            </div>
+                            {% endif %}
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            {% for perro in perros %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{ perro.foto.url }}" alt="{{ perro.nombre }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ perro.nombre }}</h3>
+                        <h5 class="card-title">{{ perro.raza}}</h5>
+                        <p class="card-text">{{ perro.descripcion }}</p>
+                        {% if perro.estado == adoptado %}
+                        <h6 class="">Adoptado por {{ perro.dueno }}</h6>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        {% if perms.perro.change_perro %}
+                        <a href="{% url 'web:editar_perro' id=perro.id %}" class="btn btn-primary">Modificar</a>
+                        <a href="{% url 'web:eliminar_perro' id=perro.id %}" class="btn btn-danger">Eliminar</a>
+                        {% endif %}
+                        {% if perro.estado == disponible %}
+                        <a href="{% url 'web:adoptar_perro' id=perro.id %}" class="btn btn-success">Adoptar</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

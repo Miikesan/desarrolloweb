@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- INICIAR SESION -->
+<div class="content login">
+    <!-- Slider
+        ================================================== -->
+    <section class="page-title bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h2>Registro exitoso</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="container">
+    <div class="row">
+        <div class="col-12 m-4">
+            <div class="jumbotron">
+                <h1 class="display-4">¡Bienvenido, {{user.username}}!</h1>
+                <p class="lead">Tu registro ha sido exitoso, desde ahora podrás iniciar sesión.</p>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="/" role="button">Ir a Inicio</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,173 @@
+/** 
+ * Project: Mis Perris
+ * Version: 1.0
+ * Last Updated: 10/09/2018 12:00 SEBC
+
+ * Primary Use: Informative
+
+Colors:
+    Main Blue: #00d6a4
+
+Font Family:
+    'Open Sans', sans-serif;
+
+Standard Media Queries:
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) { ... }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) { ... }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) { ... }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { ... }
+
+[Tabla de contenido ]
+
+--------- Generales -------------
+
+a0.Global
+
+--------- Secciones -------------
+
+b0.Header
+b1.Footer
+b2.Navigator
+b3.Mediaquerie navigator
+b4.Footer
+b5.Mediaquerie footer
+
+--------- Páginas -------------
+
+c0.Home
+
+/* ==========================================================================
+   a0.Global
+   ========================================================================== */
+
+body {
+    padding-top: 4.5rem;
+}
+
+.bg-theme {
+    background: #00d6a4;
+}
+
+.page-title {
+    background: #999 url(../images/bg-title-2.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 3.5rem 0;
+}
+
+
+/* ==========================================================================
+   b0.Header
+   ========================================================================== */
+
+header .logo {
+    max-width: 250px;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link {
+    border-bottom: 2px solid #fff;
+}
+
+.menu {
+    margin-top: 35px;
+}
+
+.top-bar .navbar-dark .navbar-nav .active>.nav-link {
+    border-bottom: none;
+}
+
+.top-bar .nav-link {
+    padding: 0;
+    font-size: .9rem;
+}
+
+.top-bar .navbar-nav {
+    flex-direction: row;
+}
+
+/* ==========================================================================
+   b0.Footer
+   ========================================================================== */
+
+footer {
+    padding: 1rem;
+}
+
+.info {
+    padding: 1.25rem 0;
+}
+
+
+/* ==========================================================================
+   c0.Home
+   ========================================================================== */
+
+.info h1 {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.info h5 {
+    color: #fff;
+}
+
+.info .social li {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background: #fff;
+    border-radius: 2.1875rem;
+}
+
+.info .social li a {
+    color: #00d6a4;
+    display: block;
+    font-size: 1.3rem;
+    padding: 3px;
+}
+
+.about-us {
+    padding: 1.8750rem 0;
+}
+
+.about-us .title span {
+    border-bottom: 3px solid #333;
+    padding: 0.625rem 0;
+}
+
+/* ==========================================================================
+   d0.Login
+   ========================================================================== */
+
+.form-accounts input,
+.form-accounts label {
+    width: 100%;
+}
+
+.form-accounts .helptext {
+    margin: .5rem 0 1rem;
+    font-size: .8rem;
+}
+
+.form-accounts br {
+    display: none;
+}
+
+.form-accounts ul {
+    padding-left: 1rem;
+}
+
+.errorlist li {
+    padding: 10px;
+    margin: 5px 0px 15px;
+    list-style: none;
+    background-color: #FFCCCC;
+    color: #BF4F45;
+    border: 1px solid #BF4F45;
+    border-radius: 3px;
+}

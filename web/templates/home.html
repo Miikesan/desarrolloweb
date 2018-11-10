@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content home">
+    <!-- Slider
+    ================================================== -->
+    <section class="banner bg-theme">
+        <h2 class="sr-only">Nuestros Perris</h2>
+        <div id="slider-home" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#slider-home" data-slide-to="0" class="active"></li>
+                <li data-target="#slider-home" data-slide-to="1"></li>
+                <li data-target="#slider-home" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active"> <img class="d-block w-100" src="{% static '/images/adoptados/Apolo.jpg' %}"
+                        alt="Primer slide">
+                </div>
+                <div class="carousel-item"> <img class="d-block w-100" src="{% static '/images/adoptados/Duque.jpg' %}"
+                        alt="Segundo slide">
+                </div>
+                <div class="carousel-item"> <img class="d-block w-100" src="{% static '/images/adoptados/Tom.jpg' %}"
+                        alt="Tercer slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#slider-home" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"
+                    aria-hidden="true"></span> <span class="sr-only">Anterior</span> </a>
+            <a class="carousel-control-next" href="#slider-home" role="button" data-slide="next"> <span class="carousel-control-next-icon"
+                    aria-hidden="true"></span> <span class="sr-only">Siguiente</span> </a>
+        </div>
+    </section>
+    <!-- Informacion
+    ================================================== -->
+    <section class="info bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 text-center">
+                    <h5 class="mt-2">+56 9 95566022</h5>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h1>Rescate y adopción de perros callejeros</h1>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="list-inline text-center social">
+                        <li class="list-inline-item">
+                            <a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"> <i class="fa fa-google-plus" aria-hidden="true"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"> <i class="fa fa-envelope" aria-hidden="true"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Acerca de
+    ================================================== -->
+    <section id="about-us" class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-right">
+                    <div class="title">
+                        <h3 class="text-uppercase">Rescate</h3> <span class="text-uppercase text-secondary">Etapa
+                            uno</span>
+                    </div>
+                    <div class="image mt-4"> <img class="w-100 rounded" src="{% static '/images/rescate.jpg' %}" alt="Etapa Uno - Rescate">
+                    </div>
+                    <p class="mt-4">Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los
+                        preparamos para buscarles un hogar.</p>
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="image"> <img class="w-100 rounded" src="{% static '/images/crowfunding.jpg' %}" alt="Etapa Dos - Financiamiento">
+                    </div>
+                    <div class="title mt-4">
+                        <h3 class="text-uppercase">Crowdfunding</h3> <span class="text-uppercase text-secondary">Financiamiento</span>
+                    </div>
+                    <p class="mt-4">Sigue nuestras redes sociales para informarte acerca de las diversas campañas y
+                        actividades que realizamos para obtener financiamiento para seguir ayudando. </p>
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+    <!-- Galeria
+    ================================================== -->
+    <section id="gallery" class="gallery bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center text-uppercase text-white mt-5">Conoce a nuestros perris</h3>
+                </div>
+                <div class="col-12 mt-5">
+                    <h4 class="text-white">Rescatados</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Bigotes.jpg' %}"
+                        data-caption="Bigotes - Perris mediano, con mucha energía, disfruta de la compañía de otros perris."><img
+                            alt="Bigotes" class="w-100" src="{% static '/images/rescatados/Bigotes_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Bigotes</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Chocolate.jpg' %}"
+                        data-caption="Chocolate -Adulto mayor no le gustan los niños, le encantan los paseos matutinos."><img
+                            alt="Chocolate" class="w-100" src="{% static '/images/rescatados/Chocolate_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Chocolate</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Luna.jpg' %}"
+                        data-caption="Luna - Pequeña y dulce busca BFF humano."><img alt="Luna" class="w-100" src="{% static '/images/rescatados/Luna_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Luna</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Maya.jpg' %}"
+                        data-caption="Maya - Le encantan las actividades al aire libre, tu mejor compañera de ejercicio."><img
+                            alt="Maya" class="w-100" src="{% static '/images/rescatados/Maya_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Maya</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Oso.jpg' %}" data-caption="Oso - Adulto responsable, le encanta mostrar afecto."><img
+                            alt="Oso" class="w-100" src="{% static '/images/rescatados/Oso_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Oso</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Pexel.jpg' %}"
+                        data-caption="Pexel - Pequeño, inquieto y no le gusta estar solo."><img alt="Pexel" class="w-100"
+                            src="{% static '/images/rescatados/Pexel_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Pexel</h4>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <a data-fancybox="gallery-rescatados" href="{% static '/images/rescatados/Wifi.jpg' %}"
+                        data-caption="Wifi - Tímido, mediano y le gusta jugar a las escondidas."><img alt="Wifi" class="w-100"
+                            src="{% static '/images/rescatados/Wifi_tn.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Wifi</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <h4 class="text-white">Adoptados</h4>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <a data-fancybox="gallery-adoptados" href="{% static '/images/adoptados/Apolo.jpg' %}"><img alt="Apolo"
+                            class="w-100" src="{% static '/images/adoptados/Apolo.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Apolo</h4>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <a data-fancybox="gallery-adoptados" href="{% static '/images/adoptados/Duque.jpg' %}"><img alt="Duque"
+                            class="w-100" src="{% static '/images/adoptados/Duque.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Duque</h4>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <a data-fancybox="gallery-adoptados" href="{% static '/images/adoptados/Tom.jpg' %}"><img alt="Tom"
+                            class="w-100" src="{% static '/images/adoptados/Tom.jpg' %}"></a>
+                    <h4 class="text-white font-weight-normal mt-3">Tom</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</div>
