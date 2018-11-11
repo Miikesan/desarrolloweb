@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'accounts',
     #'cloudinary',
 ]
+#AUTH_USER_MODEL = 'accounts.CustomUser'
+#AUTHTENTICATION_BACKENDS = ('accounts.backends.CustomUserAuth',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,8 +89,12 @@ WSGI_APPLICATION = 'misPerris.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.MisPerris'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'perris',
+        'USER': 'postgres',
+        'PASSWORD':'1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
