@@ -14,7 +14,6 @@ class Perro(models.Model):
     raza = models.CharField(default='Quiltro', max_length=100)
     descripcion = models.TextField()
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
-    dueno = models.ForeignKey('auth.User', on_delete=models.CASCADE, default=1)
-
+    
     def __str__(self):
         return self.nombre
