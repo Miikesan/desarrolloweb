@@ -62,18 +62,22 @@
                         <h3 class="card-title">{{ perro.nombre }}</h3>
                         <h5 class="card-title">{{ perro.raza}}</h5>
                         <p class="card-text">{{ perro.descripcion }}</p>
+                        <!--    TODO    sacar esto -->
                         {% if perro.estado == adoptado %}
                         <h6 class="">Adoptado por {{ perro.dueno }}</h6>
                         {% endif %}
+                        <!--    TODO    sacar esto -->
                     </div>
                     <div class="card-footer">
                         {% if perms.perro.change_perro %}
                         <a href="{% url 'web:editar_perro' id=perro.id %}" class="btn btn-primary">Modificar</a>
                         <a href="{% url 'web:eliminar_perro' id=perro.id %}" class="btn btn-danger">Eliminar</a>
                         {% endif %}
+                        <!-- TODO  esto no lo piden aun -->
                         {% if perro.estado == disponible %}
                         <a href="{% url 'web:adoptar_perro' id=perro.id %}" class="btn btn-success">Adoptar</a>
                         {% endif %}
+                        <!-- TODO  esto no lo piden aun -->
                     </div>
                 </div>
 
