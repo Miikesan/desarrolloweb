@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import cloudinary
+#no se que est cloudinary
+#import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,12 +29,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['sebaebc.pythonanywhere.com', '127.0.0.1']
 
-cloudinary.config (
-    cloud_name = "dvwc65cot",
-    api_key = "417337889115653",
-    api_secret = "p-ILiVm4hKiN6GzOkMzC9iS096U",
+#no se que hace esto me baja el runserver
+# cloudinary.config (
+#     cloud_name = "dvwc65cot",
+#     api_key = "417337889115653",
+#     api_secret = "p-ILiVm4hKiN6GzOkMzC9iS096U",
 
-)
+# )
 
 # Application definition
 
@@ -46,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'accounts',
-    'cloudinary',
+    #'cloudinary',
 ]
 
 MIDDLEWARE = [

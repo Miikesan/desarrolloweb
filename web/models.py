@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from cloudinary.models import CloudinaryField
+#from cloudinary.models import CloudinaryField
 
 class Estado(models.Model):
     descripcion = models.CharField(max_length=30)
