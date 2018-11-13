@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from .forms import SignUpForm
+from django.contrib.auth.models import Group
 
 # Create your views here.
 
@@ -13,6 +14,8 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            my_group = Group.objects.get(name='adoptante')
+            my_group.user_set.add(user) 
             login(request, user)
             return redirect('accounts:register_thanks')
     else:

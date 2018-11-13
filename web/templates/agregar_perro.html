@@ -31,6 +31,11 @@
 <section class="container">
     <div class="row">
         <div class="col-12 col-sm-6 m-auto">
+
+            {% if UserProfile.administrador %}
+
+
+
             <form action="" method="POST" enctype="multipart/form-data" class="bg-light card form-accounts p-4 m-4">
                 {% csrf_token %}
                 {{ form }}
@@ -39,6 +44,7 @@
                 {% endif %}
                 <button class="btn btn-primary btn-block mt-3" type="submit">Agregar <i class="fa fa-chevron-right"></i></button>
             </form>
+            {% endif %}
         </div>
     </div>
 
