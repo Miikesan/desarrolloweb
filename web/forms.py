@@ -4,9 +4,9 @@ from . import models
 class AgregarPerro(forms.ModelForm):
     class Meta:
         model = models.Perro
-        fields = '__all__'
+        fields = ['nombre','raza','descripcion','dueno','estado','foto']
 
 class ModificarPerro(forms.ModelForm):
     class Meta:
         model = models.Perro
-        fields = '__all__'
+        fields = ['nombre','raza','descripcion','foto', 'estado', 'dueno']
