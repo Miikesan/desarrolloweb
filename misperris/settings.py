@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import cloudinary
+#no se que est cloudinary
+#import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,12 +29,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['sebaebc.pythonanywhere.com', '127.0.0.1']
 
-cloudinary.config (
-    cloud_name = "dvwc65cot",
-    api_key = "417337889115653",
-    api_secret = "p-ILiVm4hKiN6GzOkMzC9iS096U",
+#no se que hace esto me baja el runserver
+# cloudinary.config (
+#     cloud_name = "dvwc65cot",
+#     api_key = "417337889115653",
+#     api_secret = "p-ILiVm4hKiN6GzOkMzC9iS096U",
 
-)
+# )
 
 # Application definition
 
@@ -46,8 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'accounts',
-    'cloudinary',
+    #'cloudinary',
 ]
+#AUTH_USER_MODEL = 'accounts.CustomUser'
+#AUTHTENTICATION_BACKENDS = ('accounts.backends.CustomUserAuth',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,10 +89,20 @@ WSGI_APPLICATION = 'misPerris.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.MisPerris'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'perris',
+        'USER': 'postgres',
+        'PASSWORD':'1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.MisPerris'),
+#     },
+# }
 
 
 # Password validation
