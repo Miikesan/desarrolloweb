@@ -88,9 +88,6 @@
     <section class="row"> 
         {% for perro in perros %}
             {% if perro.estado == disponible %}
-            
-               
-
                     <div class="col-sm-6 col-lg-4">
                         <div class="card mb-4">
                             <img class="card-img-top" src="{{ perro.foto.url }}" alt="{{ perro.nombre }}">

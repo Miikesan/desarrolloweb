@@ -171,3 +171,23 @@ footer {
     border: 1px solid #BF4F45;
     border-radius: 3px;
 }
+.scrollToTop{
+    position:fixed;
+    bottom:0%;
+    right:0%;
+    display: none;
+    z-index: 3;
+    }
+#pata{
+        width: 100px;
+    }
+
+@media screen and (max-width:480px) {
+
+       
+        
+        #pata{
+            width: 80px;
+        }
+    
+    }

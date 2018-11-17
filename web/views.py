@@ -19,9 +19,9 @@ def add_perro(request):
 
 def home (request):
     perros = Perro.objects.all()
-    adoptado = get_object_or_404(Estado, pk=1)
-    disponible = get_object_or_404(Estado, pk=2)
-    rescatado = get_object_or_404(Estado, pk=3)
+    adoptado = get_object_or_404(Estado, descripcion = 'adoptado')
+    disponible = get_object_or_404(Estado, descripcion = 'disponible')
+    rescatado = get_object_or_404(Estado, descripcion = 'rescatado')
     return render(request, 'home.html', {'perros': perros, 'adoptado':adoptado, 'disponible':disponible, 'rescatado':rescatado})
 
 def contacto (request):
@@ -37,10 +37,12 @@ def lista_perros(request):
     else:
         perros = Perro.objects.all().order_by('nombre')
     
-    adoptado = get_object_or_404(Estado, pk=1)
-    disponible = get_object_or_404(Estado, pk=2)
+    adoptado = get_object_or_404(Estado, descripcion = 'adoptado')
+    disponible = get_object_or_404(Estado, descripcion = 'disponible')
+    rescatado = get_object_or_404(Estado, descripcion = 'rescatado')
 
-    return render(request, 'lista_perros.html', {'perros' : perros, 'adoptado':adoptado, 'disponible':disponible})
+
+    return render(request, 'lista_perros.html', {'perros' : perros, 'adoptado':adoptado, 'disponible':disponible, 'rescatado':rescatado})
 
 @login_required(login_url="/accounts/login/")
 def agregar_perro(request):
