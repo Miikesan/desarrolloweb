@@ -16,6 +16,7 @@
     </section>
 
     <div class="container mt-4">
+        {% if perms.perro.change_perro %}
         <div class="row">
             <div class="col-12">
                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
@@ -37,54 +38,77 @@
                             <div class="form-group col-2">
                                 <input type="submit" value="Filtrar" class="btn btn-primary btn-block">
                             </div>
-                            {% if perms.perro.change_perro %}
+
                             <div class="form-group col-2">
                                 <a href="{% url 'web:agregar_perro' %}" class="btn btn-success btn-block">Agregar
                                     Perro</a>
                             </div>
-                            {% endif %}
 
                         </form>
+                        {% endif %}
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    {% if perms.perro.change_perro %}
+    <section class="row">
+        {% for perro in perros %}
+            
 
-    <div class="container mt-4">
-        <div class="row">
-            {% for perro in perros %}
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="card mb-4">
-                    <img class="card-img-top" src="{{ perro.foto.url }}" alt="{{ perro.nombre }}">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ perro.nombre }}</h3>
-                        <h5 class="card-title">{{ perro.raza}}</h5>
-                        <p class="card-text">{{ perro.descripcion }}</p>
-                        <!--    TODO    sacar esto -->
-                        {% if perro.estado == adoptado %}
-                        <h6 class="">Adoptado por {{ perro.dueno }}</h6>
-                        {% endif %}
-                        <!--    TODO    sacar esto -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="{{ perro.foto.url }}" alt="{{ perro.nombre }}" height="300px">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ perro.nombre }}</h3>
+                            <h5 class="card-title">{{ perro.raza}}</h5>
+                            <p class="card-text">{{ perro.descripcion }}</p>
+
+                        </div>
+                        <div class="card-footer">
+                            {% if perms.perro.change_perro %}
+                            <a href="{% url 'web:editar_perro' id=perro.id %}" class="btn btn-primary">Modificar</a>
+                            <a href="{% url 'web:eliminar_perro' id=perro.id %}" class="btn btn-danger">Eliminar</a>
+                            {% endif %}
+                            <!-- TODO  esto no lo piden aun -->
+                            {% if perro.estado == disponible %}
+                            <a href="{% url 'web:adoptar_perro' id=perro.id %}" class="btn btn-success">Adoptar</a>
+                            {% endif %}
+                            <!-- TODO  esto no lo piden aun -->
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        {% if perms.perro.change_perro %}
-                        <a href="{% url 'web:editar_perro' id=perro.id %}" class="btn btn-primary">Modificar</a>
-                        <a href="{% url 'web:eliminar_perro' id=perro.id %}" class="btn btn-danger">Eliminar</a>
-                        {% endif %}
-                        <!-- TODO  esto no lo piden aun -->
-                        {% if perro.estado == disponible %}
-                        <a href="{% url 'web:adoptar_perro' id=perro.id %}" class="btn btn-success">Adoptar</a>
-                        {% endif %}
-                        <!-- TODO  esto no lo piden aun -->
-                    </div>
+
                 </div>
-
-            </div>
+            
             {% endfor %}
+        </section>
+    {% else %}
+    <section class="row"> 
+        {% for perro in perros %}
+            {% if perro.estado == disponible %}
+            
+               
 
-        </div>
-    </div>
-</div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="{{ perro.foto.url }}" alt="{{ perro.nombre }}">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ perro.nombre }}</h3>
+                                <h5 class="card-title">{{ perro.raza}}</h5>
+                                <p class="card-text">{{ perro.descripcion }}</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+            
+            {% endif %}
+        {% endfor %}
+    </section>
+    {% endif %}
+
 {% endblock %}

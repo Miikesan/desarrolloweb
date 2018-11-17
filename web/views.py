@@ -18,7 +18,11 @@ def add_perro(request):
     return render(request, 'web/add_perro.html', {})
 
 def home (request):
-    return render(request, 'home.html')
+    perros = Perro.objects.all()
+    adoptado = get_object_or_404(Estado, pk=1)
+    disponible = get_object_or_404(Estado, pk=2)
+    rescatado = get_object_or_404(Estado, pk=3)
+    return render(request, 'home.html', {'perros': perros, 'adoptado':adoptado, 'disponible':disponible, 'rescatado':rescatado})
 
 def contacto (request):
     return render(request, 'contacto.html')

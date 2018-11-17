@@ -22,6 +22,7 @@
     <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{% static '/css/main.css' %}" rel="stylesheet">
+    <a href="#" class="scrollToTop"><img src= "{% static 'android-chrome-192x192.png' %}" id="pata" alt></a>
 </head>
 
 <body class="home">
@@ -61,8 +62,18 @@
                     <li class="nav-item"> <a class="nav-link" href="#about-us">Quienes Somos</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Servicios</a> </li>
                     {% if user.is_authenticated %}
+                    
+                    {% if perms.perro.change_perro  %}
+                        
                     <li class="nav-item {% if request.path == '/lista_perros/' %} active {% endif %}"> <a class="nav-link"
-                            href="{% url 'web:lista_perros' %}">Adoptar</a> </li>
+                            href="{% url 'web:lista_perros' %}">Administrar perros</a> </li>
+                    {% else %}
+                    <li class="nav-item {% if request.path == '/lista_perros/' %} active {% endif %}"> <a class="nav-link"
+                        href="{% url 'web:lista_perros' %}">Adoptar</a> </li>
+                        
+                    {% endif %}
+                        
+
                     {% endif %}
                     <li class="nav-item {% if request.path == '/contacto' %} active {% endif %}"> <a class="nav-link"
                             href="{% url 'web:contacto' %}">Contáctanos</a>
@@ -89,6 +100,7 @@
     <script src="{% static '/js/popper.min.js' %}"></script>
     <script src="{% static '/js/bootstrap.min.js' %}"></script>
     <script src="{% static '/js/main.js' %}"></script>
+   
 </body>
 
 </html>
